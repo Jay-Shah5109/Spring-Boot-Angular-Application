@@ -9,6 +9,7 @@ import { UserRegistrationService } from '../user-registration.service';
 export class SearchDeleteComponent implements OnInit {
 
   users:any;
+  email:any;
 
   constructor(private service: UserRegistrationService) { }
 
@@ -20,6 +21,11 @@ export class SearchDeleteComponent implements OnInit {
   public deleteUser(user:number) {
       let response = this.service.deleteUser(user);
       response.subscribe((data:any) => this.users=data);
+  }
+
+  public findUserByEmailId() {
+        let response = this.service.getUserByEmail(this.email);
+        response.subscribe((data:any) => this.users=data);
     }
 
 }
