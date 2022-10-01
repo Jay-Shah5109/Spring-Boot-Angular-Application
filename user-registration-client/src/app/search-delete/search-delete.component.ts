@@ -17,4 +17,9 @@ export class SearchDeleteComponent implements OnInit {
     response.subscribe((data:any)=>this.users=data);
   }
 
+  public deleteUser(user:number) {
+      let response = this.service.deleteUser(user);
+      response.subscribe((data:any) => this.users=data);
+    }
+
 }
